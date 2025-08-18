@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерея товаров</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">LOGO</div>
+  <nav class="nav-links">
+    <a href="index.html" data-i18n="home">Главная</a>
+    <a href="#gallery" data-i18n="products">Товары</a>
+    <a href="#about" data-i18n="about">О нас</a>
+  </nav>
+  <div class="header-right">
+    <div class="socials">
+      <a href="#" class="social" title="Instagram">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" fill="white"/></svg>
+      </a>
+      <a href="#" class="social" title="Telegram">
+        <svg viewBox="0 0 24 24"><polygon points="2,12 22,2 18,18 12,14 6,18" fill="white"/></svg>
+      </a>
+    </div>
+    <div class="language-selector">
+      <select id="language-select">
+        <option value="ru">RU</option>
+        <option value="en">EN</option>
+        <option value="az">AZ</option>
+      </select>
+    </div>
+    <div class="burger">
+      <div class="line line1"></div>
+      <div class="line line2"></div>
+      <div class="line line3"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="gallery" id="gallery">
+    <h2 data-i18n="productsTitle">Все товары</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="product1.jpg" alt="Product 1"><p data-i18n="product1Name">Товар 1</p></div>
+      <div class="gallery-item"><img src="product2.jpg" alt="Product 2"><p data-i18n="product2Name">Товар 2</p></div>
+      <div class="gallery-item"><img src="product3.jpg" alt="Product 3"><p data-i18n="product3Name">Товар 3</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Online Shop
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
