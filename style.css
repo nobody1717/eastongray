@@ -1,0 +1,87 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Montserrat',sans-serif;background:#000;color:#fff;overflow-x:hidden;line-height:1.5;}
+a{text-decoration:none;color:inherit;}
+
+/* Header */
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;backdrop-filter:blur(12px);background: rgba(0,0,0,0.7);width:100%;position:fixed;top:0;left:0;z-index:999;}
+.logo{font-size:26px;font-weight:700;letter-spacing:1px;transition:0.3s; font-family: "Michroma", sans-serif;}
+.nav-links{display:flex;gap:25px;font-weight:600;text-transform:uppercase;transition:0.3s;}
+.header-right{display:flex;align-items:center;gap:20px;}
+/* Соцсети */
+.socials{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.social{
+  display:inline-block;
+  position:relative;
+  transition: transform 0.3s ease;
+}
+
+.social:hover{
+  transform: translateY(-5px) scale(1.1);
+}
+
+.social-logo{
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0% { transform: translateY(0px);}
+  50% { transform: translateY(-6px);}
+  100% { transform: translateY(0px);}
+}
+.language-selector-mobile select{padding:6px 12px;border-radius:5px;background:#111;color:#fff;border:1px solid #fff;font-weight:600;cursor:pointer;}
+
+/* Burger */
+.burger{display:none;cursor:pointer;flex-direction:column;gap:5px;}
+.burger .line{width:28px;height:3px;background:#fff;transition: all 0.5s ease;}
+.burger.active .line1{transform: rotate(45deg) translate(5px,5px);}
+.burger.active .line2{opacity:0;}
+.burger.active .line3{transform: rotate(-45deg) translate(5px,-5px);}
+.nav-links.active{display:flex;flex-direction:column;position:absolute;top:70px;right:20px;background:#111;padding:20px;border-radius:6px;gap:15px;}
+
+/* Карусель */
+.carousel-section{padding:140px 20px;text-align:center;overflow:hidden;position:relative;z-index:1;}
+.carousel-wrapper{position:relative;max-width:1200px;margin:0 auto;z-index:2;} /* Передний план */
+.carousel{overflow:hidden;width:100%;touch-action:pan-y;}
+.carousel-track{display:flex;transition:transform 0.5s ease;}
+.carousel-item{min-width:100%;max-width:100%;background:#111;border-radius:6px;text-align:center;padding:10px;flex-shrink:0;opacity:0.4;transform:scale(0.9);transition:all 0.5s ease;}
+.carousel-item img{width:50%;border-radius:6px;}
+.prev,.next{position:absolute;top:50%;transform:translateY(-50%);background:#111;color:#fff;border:none;font-size:32px;padding:12px 15px;cursor:pointer;border-radius:6px;z-index:10;transition:all 0.3s ease, transform 0.3s ease;}
+.prev{left:0;}
+.next{right:0;}
+.prev:hover,.next:hover{background:#222;transform:translateY(-50%) scale(1.1);}
+.view-all{margin-top:20px;display:inline-block;padding:12px 25px;border:2px solid #fff;border-radius:5px;font-weight:600;transition:all 0.3s ease;}
+.view-all:hover{background:#fff;color:#000;}
+
+/* Птицы */
+.bird-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;} /* За каруселью */
+.bird-container .bird{position:absolute;width:30px;height:30px;border-radius:50%;background:#fff;}
+.bird-container .bird::before,.bird-container .bird::after{
+  content:"";position:absolute;width:15px;height:7px;background:#fff;border-radius:10px 10px 0 0;top:2px;
+}
+.bird-container .bird::before{left:-5px;transform:rotate(45deg);}
+.bird-container .bird::after{left:20px;transform:rotate(-45deg);}
+
+/* О нас */
+.about{width:100%;background:#111;padding:80px 20px;text-align:center;margin-top:60px;}
+.about-text{max-width:900px;margin:0 auto;font-size:1.15rem;color:#ddd;}
+
+/* Галерея */
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;padding:20px;}
+.gallery-item{background:#111;border-radius:6px;text-align:center;padding:10px;transition:all 0.3s ease;}
+.gallery-item img{width:100%;border-radius:6px;}
+.gallery-item:hover{transform:scale(1.05);}
+
+/* Footer */
+footer{text-align:center;padding:30px 20px;background:#111;color:#aaa;font-size:14px;}
+
+/* Адаптив */
+@media(max-width:768px){
+  .logo{margin:0 auto;}
+  .nav-links,.socials{display:none;}
+  .burger{display:flex;}
+}
