@@ -4,16 +4,10 @@ const translations={
       aboutTextExtra:"Мы ценим каждого покупателя ❤️ Спасибо за интерес к нам! Ваш заказ будет подготовлен в лучшем виде — можете быть уверены! 🚀",},
   en:{home:"Home",products:"Products",about:"About Us",productsTitle:"Our Products",viewAll:"View All Products",
       aboutTitle:"Why choose us?",aboutText:"We sell original, fully legit clothing for literally pennies! 🔥The secret behind our prices is simple: overstock and written-off items from brand warehouses and online stores are sold off for almost nothing — and we give you the chance to grab them first.We provide a full guarantee of quality and durability (of course, as long as you wear them with care 😉). You can explore the available items at the top of the site or in our gallery.",
-      aboutTextExtra:"We value every customer ❤️ Thank you for your interest!Rest assured — your order will be prepared in the best possible way 🚀",
-      product1Name:"HUGO BOSS",product1Price:"35₼",
-      product2Name:"HUGO BOSS",product2Price:"30₼",
-      product3Name:"JACK & JONES",product3Price:"30₼"},
+      aboutTextExtra:"We value every customer ❤️ Thank you for your interest!Rest assured — your order will be prepared in the best possible way 🚀",},
   az:{home:"Ana Səhifə",products:"Məhsullar",about:"Haqqımızda",productsTitle:"Məhsullarımız",viewAll:"Bütün Məhsulları Bax",
       aboutTitle:"Niyə bəs biz?",aboutText:"Biz tam orijinal və rəsmi geyimləri cəmi qəpik qiymətinə satırıq! 🔥Qiymətlərimizin sirri sadədir: brend anbarlarından və onlayn mağazalardan silinmiş geyimlər çox ucuz qiymətə satılır və biz sizə onları ilk əldə etmək şansı veririk.Məhsullarımızın keyfiyyətinə və uzunömürlülüyünə tam zəmanət veririk (əlbəttə, geyimi səliqəli geyinsəniz 😉).Mövcud məhsulları səhifənin yuxarısında və ya qalereyamızda görə bilərsiniz.",
-      aboutTextExtra:"Biz hər bir alıcını dəyərləndiririk ❤️ Bizə maraq göstərdiyiniz üçün təşəkkür edirik! Əmin olun — sifarişiniz ən yaxşı şəkildə hazırlanacaq 🚀",
-      product1Name:"HUGO BOSS",product1Price:"35₼",
-      product2Name:"HUGO BOSS",product2Price:"30₼",
-      product3Name:"JACK & JONES",product3Price:"30₼"}
+      aboutTextExtra:"Biz hər bir alıcını dəyərləndiririk ❤️ Bizə maraq göstərdiyiniz üçün təşəkkür edirik! Əmin olun — sifarişiniz ən yaxşı şəkildə hazırlanacaq 🚀",}
 };
 function translateSite(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{
@@ -89,3 +83,54 @@ for(let i=0;i<numBirds;i++){
   }
   animateBird();
 }
+
+/* Лайтбокс */
+
+const images = document.querySelectorAll(".gallery-item img");
+const lightbox = document.querySelector(".lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const btnClose = document.querySelector(".lightbox .close");
+const btnPrev = document.querySelector(".lightbox .prev");
+const btnNext = document.querySelector(".lightbox .next");
+
+let currentIndex = 0;
+
+function showLightbox(index) {
+  currentIndex = index;
+  lightboxImg.src = images[currentIndex].src;
+  lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+  lightbox.style.display = "none";
+}
+
+function nextImage() {
+  currentIndex = (currentIndex + 1) % images.length;
+  lightboxImg.src = images[currentIndex].src;
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  lightboxImg.src = images[currentIndex].src;
+}
+
+images.forEach((img, index) => {
+  img.addEventListener("click", () => showLightbox(index));
+});
+
+btnClose.addEventListener("click", closeLightbox);
+btnNext.addEventListener("click", nextImage);
+btnPrev.addEventListener("click", prevImage);
+
+window.addEventListener("keydown", (e) => {
+  if (lightbox.style.display === "flex") {
+    if (e.key === "ArrowRight") nextImage();
+    if (e.key === "ArrowLeft") prevImage();
+    if (e.key === "Escape") closeLightbox();
+  }
+});
+
+
+/* Лайтбокс для галереи */
+
